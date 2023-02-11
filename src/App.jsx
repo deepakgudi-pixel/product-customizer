@@ -8,11 +8,7 @@ function App() {
 
   return (
     <div>
-      <Canvas>
-        <mesh ref={ref}>
-          <boxGeometry attach="geometry" args={[5, 5]} />
-        </mesh>
-      </Canvas>
+     
     </div>
   );
 }
