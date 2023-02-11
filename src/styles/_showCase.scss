@@ -18,54 +18,46 @@
     box-shadow: 20px 40px 33px rgba(0, 0, 0, 0.3);
     padding: 2rem;
     width: 35vw;
-    
+    background-color: hsl(353, 33%, 48%);
 
     .product-canvas {
-        width: 35vw;
-        height: 38vh;
-        background: white;
-        border-radius: 0px;
-        margin-bottom: 20px;
+      width: 35vw;
+      height: 38vh;
+    //   background: white;
+      border-radius: 0px;
+      margin-bottom: 20px;
     }
-      
-      .colors {
-        display: flex;
-        flex-direction: row;
-      } 
 
-      .colors div {
-        padding: 8px;
-      }
-      
-      input {
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-color: transparent;
-        cursor: pointer;
-        border: none;
-      }
-      
-      input::-webkit-color-swatch {
-        border-radius: 20%;
-        width: 20px;
-        height: 20px;
-        border: none;
-      }
-      
-      label {
-        display: flex;
-      }
-      
+    .colors {
+      display: flex;
+      flex-direction: row;
+    }
 
+    .colors div {
+      padding: 8px;
+    }
+
+    input {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+    }
+
+    input::-webkit-color-swatch {
+      border-radius: 20%;
+      width: 20px;
+      height: 20px;
+      border: none;
+    }
+
+    label {
+      display: flex;
+    }
   }
-
 }
-
-
-
-
-
