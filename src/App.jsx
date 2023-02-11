@@ -4,15 +4,34 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
 function App() {
-  const ref = useRef();
-
   return (
     <div>
-      <Canvas>
-        <mesh ref={ref}>
-          <boxGeometry attach="geometry" args={[5, 5]} />
-        </mesh>
-      </Canvas>
+      <div className="wrapper">
+        <div className="card">
+          <div className="product-canvas">
+            <Canvas>
+              
+            </Canvas>
+          </div>
+          <h2>Select your color</h2>
+          <div className="colors">
+            <div>
+              <input type="color" id="head" name="head" value="#e66465" />
+              <label for="head">Main</label>
+            </div>
+
+            <div>
+              <input type="color" id="body" name="body" value="#f6b73c" />
+              <label for="body">Stripes</label>
+            </div>
+
+            <div>
+              <input type="color" id="body" name="body" value="#f6b73c" />
+              <label for="body">Sole</label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
