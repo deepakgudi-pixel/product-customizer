@@ -1,26 +1,17 @@
 import "./styles/main.scss";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
+import Model from "./components/Model";
 
-//gltfjsx
-function Model(props) {
-  const { nodes, materials } = useGLTF("/gltf/shoe.gltf");
-  return (
-    <group {...props} dispose={null} scale={2.8}>
-      <mesh geometry={nodes.shoe.geometry} material={materials.laces} material-color={'red'} />
-      <mesh geometry={nodes.shoe_1.geometry} material={materials.mesh} />
-      <mesh geometry={nodes.shoe_2.geometry} material={materials.caps} />
-      <mesh geometry={nodes.shoe_3.geometry} material={materials.inner} />
-      <mesh geometry={nodes.shoe_4.geometry} material={materials.sole} />
-      <mesh geometry={nodes.shoe_5.geometry} material={materials.stripes} />
-      <mesh geometry={nodes.shoe_6.geometry} material={materials.band} />
-      <mesh geometry={nodes.shoe_7.geometry} material={materials.patch} />
-    </group>
-  );
-}
 
 function App() {
+
+  const [mesh, setMesh] = useState('#ffffff');
+  const [stripes, setStripes] = useState('#ffffff');
+  const [sole, setSole] = useState('#ffffff');
+  const [laces, setLaces] = useState('#ffffff');
+
   return (
     <div>
       <div className="wrapper">
@@ -36,7 +27,7 @@ function App() {
                    intensity={0.9}
                    castShadow
                   />
-                  <Model />
+                  <Model customColors={{ mesh: mesh, stripes: stripes, sole: sole, laces: laces }}/>
                   <OrbitControls 
                   enablePan={false}
                   enableZoom={false}
@@ -48,19 +39,25 @@ function App() {
           <h2>Select your color</h2>
           <div className="colors">
             <div>
-              <input type="color" id="head" name="head" defaultValue="#e66465" />
-              <label  htmlFor="head">Main</label>
+              <input type="color" id="mesh" name="mesh" defaultValue={mesh} onChange={(e)=> setMesh(e.target.value)} />
+              <label  htmlFor="mesh">Main</label>
             </div>
 
             <div>
-              <input type="color" id="body" name="body" defaultValue="#f6b73c" />
-              <label  htmlFor="body">Stripes</label>
+              <input type="color" id="stripes" name="stripes" defaultValue={stripes} onChange={(e)=> setStripes(e.target.value)}  />
+              <label  htmlFor="stripes">Stripes</label>
             </div>
 
             <div>
-              <input type="color" id="body" name="body" defaultValue="#f6b73c" />
+              <input type="color" id="sole" name="sole" defaultValue={sole} onChange={(e)=> setSole(e.target.value)} />
               <label  htmlFor="body">Sole</label>
             </div>
+
+            <div>
+              <input type="color" id="laces" name="laces" defaultValue={laces} onChange={(e)=> setLaces(e.target.value)} />
+              <label  htmlFor="laces">Laces</label>
+            </div>
+
           </div>
         </div>
       </div>
